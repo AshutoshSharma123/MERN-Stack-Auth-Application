@@ -6,6 +6,8 @@ import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 
+import Header from './components/Header.jsx'
+
 import './App.css'
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
