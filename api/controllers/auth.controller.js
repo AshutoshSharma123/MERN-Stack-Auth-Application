@@ -1,6 +1,7 @@
 import User from '../models/user.model.js'
 import bcryptjs from 'bcryptjs'
-export const signup = async (req, res) => {
+import { errorHandler } from '../utils/error.js';
+export const signup = async (req, res, next) => {
 
     const { username, email, password } = req.body;
 
@@ -10,7 +11,7 @@ export const signup = async (req, res) => {
         await newUser.save()
 
     } catch (error) {
-        res.status(500).json(error.message);
+        next(errorHandler(300, "something went wrong")); //this error has come from a middleware i.e. in index.js
 
     }
 
